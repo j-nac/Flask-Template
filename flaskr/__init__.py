@@ -1,15 +1,16 @@
 from flask import Flask
 from flask_mysqldb import MySQL
-import os
+import yaml
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+config = yaml.load(open('../config.yaml', 'rb'))
+app.config['SECRET_KEY'] = config['secret_key']
 
 # MySQL setup
-app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
-app.config['MYSQL_USER'] = os.environ['MYSQL_USER']
-app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD']
-app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
+app.config['MYSQL_HOST'] = config['mysql_host']
+app.config['MYSQL_USER'] = config['mysql_user']
+app.config['MYSQL_PASSWORD'] = config['mysql_password']
+app.config['MYSQL_DB'] = config['mysql_db']
 
 mysql = MySQL(app)
 

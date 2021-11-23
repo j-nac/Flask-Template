@@ -1,0 +1,5 @@
+secret_key: 'insertkeyhere'
+mysql_host: 'localhost'
+mysql_user: 'root'
+mysql_password: 'somestrongpassword123'
+mysql_db: 'flaskapp'
