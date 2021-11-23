@@ -3,7 +3,7 @@ from flask_mysqldb import MySQL
 import yaml
 
 app = Flask(__name__)
-config = yaml.load(open('../config.yaml', 'rb'))
+config = yaml.safe_load(open('config.yaml'))
 app.config['SECRET_KEY'] = config['secret_key']
 
 # MySQL setup
